@@ -1,8 +1,13 @@
 # Reconomy-ledger
 
 Smart contracts for mutual credit ledger on Hyperledger Iroha 
+explain
 
 ## Context
+
+Mutual credit is an alternative currency that is used within a community or group of people. It is based on the principle of reciprocal exchange, in which members of the community agree to trade goods and services with each other using units of credit that are issued and managed by the group. Unlike traditional currencies, which are issued and controlled by central banks or governments, mutual credit is issued and managed by the community itself.
+
+The goal of mutual credit is to create an alternative means of exchange that allows members of a community to trade goods and services with each other without relying on traditional forms of money. Mutual credit systems are designed to facilitate trade among members of the community, support local businesses, and promote economic self-sufficiency. This can help to strengthen the local economy and foster a sense of community among members.
 
 Goal of mutual credit is to create communty resilience by fascilitating and encouraging exchange of local goods and services. For that it requires a private accounting system that is designed for the currency to circulate.
 
@@ -24,7 +29,7 @@ As a result on the local scale we will be expecting:
 
 * Higher rates of utilisation of local services and produce.
 * With increased velocity we'll expect more value created and exchanged within cooperative.
-* Positive environmental impact.
+* Positive environmental impact. \\how?
 * Community resilience. Increase of engagements within the local community will result in food security and emergency preparedness. 
 
 ## How
@@ -56,7 +61,7 @@ Minted credits then sent to distribution account that will redistributes credits
 
 #### 3. Reccuring donation
 To recirculate credits and provide credits to refill pools
-By joinng cooperative members agree to contribute a monthly donation, which has a minimum limit of `MINIMUM_DONATION_AMOUNT`. This payment to be sent into distribution account. This donation serves a purpose to recirculate credits and refill pools. Reccuring payment will be set when members engage with the system for the first time. Further members can alter the amount of donation.
+By joinng cooperative members agree to contribute a monthly donation, which has a minimum limit of `MINIMUM_DONATION_AMOUNT`. This payment to be sent into distribution account. This donation serves a purpose to recirculate credits and refill pools. Reccuring payment will be set when members engage with the system for the first time. Further members can alter the amount of donation. if you don't have money
 
 #### 4. Demurage.
 
