@@ -67,6 +67,8 @@ When new credits are minted, as well as when existing credits are returned to ci
 
 10% Balance pool. To burn credit when the person leaves. The pool is capped at 10% of `TOTAL_AMOUNT_MINTED`. Excess is to be sent to the community pool. 
 
+Accounts above are shared accounts, and community admins have access to manage them.
+
 #### 3. Recurring donation
 It required having mechanisms in place to introduce credits back into circulation. One of them is a recurring donation.
 By joining the cooperative members agree to contribute a monthly donation, which has a minimum limit of `MINIMUM_DONATION_AMOUNT`. This payment is to be sent to the distribution account. Recurring payments will be set when members engage with the system for the first time. Later members can alter the amount of donation.
@@ -77,10 +79,12 @@ To prevent hoarding and recirculate credits, mechanisms of demurrage will be imp
 Demurrage is a fee for holding onto big amounts of credit over a long period of time. 
 In this implementation, there will be 3 tiers of demurrage. Contracts for demurrage are implemented sequentially from higher to lower. Implementation of the demurrage is similar for all the tires only variables differ. Demurrage contracts are executed once a month on the set date.
 
-If `averageMonthlyBalance`(referenced below) of user exceeds `DEMURAGE_CHECK_PRECENT_TIER_$X * AMOUNT_MINTED_PP` and if `currentBalance` grater than `DEMURAGE_CHECK_PRECENT_TIER_$X * AMOUNT_MINTED_PP`, then smart contracts executes transaction of `(currentBalance - DEMURAGE_CHECK_PRECENT_TIER_$X * AMOUNT_MINTED_PP) * DEMURAGE_FEE_PRECENT_TIER_$X` to the redistribution account.
+If `averageMonthlyBalance`(referenced below) of user exceeds `DEMURAGE_CHECK_PRECENT_TIER_$X * AMOUNT_MINTED_PP` and if `currentBalance` grater than `DEMURAGE_CHECK_PRECENT_TIER_$X * AMOUNT_MINTED_PP`, then smart contracts executes transaction of `(minimum(currentBalance, averageMonthlyBalance) - DEMURAGE_CHECK_PRECENT_TIER_$X * AMOUNT_MINTED_PP) * DEMURAGE_FEE_PRECENT_TIER_$X` to the redistribution account. Function `minimum(currentBalance, averageMonthlyBalance)` picking a value that is lesser.  
 
 #### 5. Monitoring
 To execute demurrage contracts it requires monitoring of `averageMonthlyBalance` for each user.
+
+It is necessary to monitor user inactivity in order to detect inactive users and withdraw credits accounted for these users from the circulation. In this scenario if user is inactive for a period over a yer, system sends a notification to community admins, so they can start the process of suspending or deacitvating the user account.
 
 To ensure the optimal efficiency of the system it is required to track the velocity of credits. It's possible by monitoring the following metrics:
 
@@ -94,3 +98,12 @@ To ensure the optimal efficiency of the system it is required to track the veloc
 
 All of the metrics above need to exclude transactions made from 4 credit pools(mentioned in the redistribution section). This is required to only consider user activities.
 These metrics will help to fine-tune the variables and bring the system to its optimum.
+
+#### 6. Deactivation of inactive accounts 
+When community admins 
+
+#### 7. Tokenomics
+
+#### 8. Initial values
+
+#### 9. Simulation
