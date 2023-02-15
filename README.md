@@ -69,6 +69,7 @@ When new credits are minted, as well as when existing credits are returned to ci
 
 The accounts above are shared accounts, and community admins have access to manage them. No recurring donation or demurrage is applied to these accounts.
 
+
 #### 3. Recurring donation
 It required having mechanisms in place to introduce credits back into circulation. One of them is a recurring donation.
 By joining the cooperative members agree to contribute a monthly donation, which has a minimum limit of `MINIMUM_DONATION_AMOUNT`. This payment is to be sent to the distribution account. Recurring payments will be set when members engage with the system for the first time. Later members can alter the amount of donation.
@@ -85,6 +86,7 @@ If `averageMonthlyBalance`(referenced below) of user exceeds `DEMURAGE_CHECK_PRE
 Executing demurrage contracts requires monitoring of `averageMonthlyBalance` for each user.
 
 It is necessary to monitor user inactivity to detect inactive users and withdraw credits accounted for these users from circulation. In this scenario, if a user is inactive for a period over a yer, the system sends a notification to community admins, so they can start the process of deactivating the user account.
+
 
 To ensure the optimal efficiency of the system it is required to track the velocity of credits. It's possible by monitoring the following metrics:
 
@@ -122,3 +124,4 @@ AMOUNT_MINTED_PP is based on the assumption that over the period of one year, me
 
 #### 8. Simulation
 Before using the system in the real case scenario it would be great to run some simulations to see how smoothly it would operate. It would be great to learn about some options that could be applicable.
+
