@@ -40,14 +40,15 @@ Here's more practical info on how this can be achieved with Hyperledger Iroha.
 ### Variables
 Initially, there are a few variables that are set by the committee members:
 
-`AMOUNT_MINTED_PP` - Amount of minted credit per person
-`DEMURAGE_CHECK_PRECENT_TIER_$X`- Percentage of minted credit per person to check if the user qualifies for demurrage within tier $X
-`DEMURAGE_FEE_PRECENT_TIER_$X` - Percentage of demurrage payment for tier $X
-`MINIMUM_DONATION_AMOUNT` - Minimum limit for a recurring monthly donation
+* `AMOUNT_MINTED_PP` - Amount of minted credit per person
+* `DEMURAGE_CHECK_PRECENT_TIER_$X`- Percentage of minted credit per person to check if the user qualifies for demurrage within tier $X
+* `DEMURAGE_FEE_PRECENT_TIER_$X` - Percentage of demurrage payment for tier $X
+* `MINIMUM_DONATION_AMOUNT` - Minimum limit for a recurring monthly donation
 
 The variables above are used as control levers of the system. They are initially agreed upon and set by the cooperative, later they can be fine-tuned to ensure optimal velocity of the credits.
 
 Calculated variables:
+
 `TOTAL_AMOUNT_MINTED` - Total amount of minted credit in the network
 
 
@@ -111,16 +112,18 @@ Because the credits are backed by members' commitment to contribute time and ski
 ##### Initial values
 For the first iteration of the system following variables the following will be used:
 
-`AMOUNT_MINTED_PP = 2400`
-`DEMURAGE_CHECK_PRECENT_TIER_1 = 30`
-`DEMURAGE_FEE_PRECENT_TIER_1 = 10`
-`DEMURAGE_CHECK_PRECENT_TIER_2 = 50`
-`DEMURAGE_FEE_PRECENT_TIER_2 = 30`
-`DEMURAGE_CHECK_PRECENT_TIER_3 = 90`
-`DEMURAGE_FEE_PRECENT_TIER_3 = 60`
-`MINIMUM_DONATION_AMOUNT = 120`
+```
+AMOUNT_MINTED_PP = 2400
+DEMURAGE_CHECK_PRECENT_TIER_1 = 30
+DEMURAGE_FEE_PRECENT_TIER_1 = 10
+DEMURAGE_CHECK_PRECENT_TIER_2 = 50
+DEMURAGE_FEE_PRECENT_TIER_2 = 30
+DEMURAGE_CHECK_PRECENT_TIER_3 = 90
+DEMURAGE_FEE_PRECENT_TIER_3 = 60
+MINIMUM_DONATION_AMOUNT = 120
+```
 
-AMOUNT_MINTED_PP is based on the assumption that over the period of one year, members will contribute at least 40 hours of their time towards the community.
+`AMOUNT_MINTED_PP` is based on the assumption that over the period of one year, members will contribute at least 40 hours of their time towards the community.
 
 #### 8. Simulation
 Before using the system in the real case scenario it would be great to run some simulations to see how smoothly it would operate. It would be great to learn about some options that could be applicable.
