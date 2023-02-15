@@ -67,7 +67,8 @@ When new credits are minted, as well as when existing credits are returned to ci
 
 10% Balance pool. To burn credit when the person leaves. The pool is capped at 10% of `TOTAL_AMOUNT_MINTED`. Excess is to be sent to the community pool. 
 
-Accounts above are shared accounts, and community admins have access to manage them.
+The accounts above are shared accounts, and community admins have access to manage them. No recurring donation or demurrage is applied to these accounts.
+
 
 #### 3. Recurring donation
 It required having mechanisms in place to introduce credits back into circulation. One of them is a recurring donation.
@@ -79,12 +80,13 @@ To prevent hoarding and recirculate credits, mechanisms of demurrage will be imp
 Demurrage is a fee for holding onto big amounts of credit over a long period of time. 
 In this implementation, there will be 3 tiers of demurrage. Contracts for demurrage are implemented sequentially from higher to lower. Implementation of the demurrage is similar for all the tires only variables differ. Demurrage contracts are executed once a month on the set date.
 
-If `averageMonthlyBalance`(referenced below) of user exceeds `DEMURAGE_CHECK_PRECENT_TIER_$X * AMOUNT_MINTED_PP` and if `currentBalance` grater than `DEMURAGE_CHECK_PRECENT_TIER_$X * AMOUNT_MINTED_PP`, then smart contracts executes transaction of `(minimum(currentBalance, averageMonthlyBalance) - DEMURAGE_CHECK_PRECENT_TIER_$X * AMOUNT_MINTED_PP) * DEMURAGE_FEE_PRECENT_TIER_$X` to the redistribution account. Function `minimum(currentBalance, averageMonthlyBalance)` picking a value that is lesser.  
+If `averageMonthlyBalance`(referenced below) of user exceeds `DEMURAGE_CHECK_PRECENT_TIER_$X * AMOUNT_MINTED_PP` and if `currentBalance` grater than `DEMURAGE_CHECK_PRECENT_TIER_$X * AMOUNT_MINTED_PP`, then smart contracts executes transaction of `(minimum(currentBalance, averageMonthlyBalance) - DEMURAGE_CHECK_PRECENT_TIER_$X * AMOUNT_MINTED_PP) * DEMURAGE_FEE_PRECENT_TIER_$X` to the redistribution account. Function `minimum(currentBalance, averageMonthlyBalance)` picks a lesser value.  
 
 #### 5. Monitoring
-To execute demurrage contracts it requires monitoring of `averageMonthlyBalance` for each user.
+Executing demurrage contracts requires monitoring of `averageMonthlyBalance` for each user.
 
-It is necessary to monitor user inactivity in order to detect inactive users and withdraw credits accounted for these users from the circulation. In this scenario if user is inactive for a period over a yer, system sends a notification to community admins, so they can start the process of suspending or deacitvating the user account.
+It is necessary to monitor user inactivity to detect inactive users and withdraw credits accounted for these users from circulation. In this scenario, if a user is inactive for a period over a yer, the system sends a notification to community admins, so they can start the process of deactivating the user account.
+
 
 To ensure the optimal efficiency of the system it is required to track the velocity of credits. It's possible by monitoring the following metrics:
 
@@ -100,10 +102,26 @@ All of the metrics above need to exclude transactions made from 4 credit pools(m
 These metrics will help to fine-tune the variables and bring the system to its optimum.
 
 #### 6. Deactivation of inactive accounts 
-When community admins 
+When community admins get a notification that a user has been inactive for over a year, they will contact the person before deactivating their account. When the admin launches the process of deactivation it will deactivate or remove the account from the system and burn `AMOUNT_MINTED_PP` of credits from the balance pool.
 
 #### 7. Tokenomics
+Since mutual credit is not backed or pegged to fiat or commodity, it's important to determine a different measure of value.
+Because the credits are backed by members' commitment to contribute time and skill, it is possible to peg the credit value to time. In this scenario members of the cooperative will agree that 1 hour of labour or volunteering time is remunerated in 60 credits. That does NOT imply that 1 hour of any kind of work is equal to 60 credits. If we try to project the value of the mutual credits onto "real world money" we can say that 60 credits equal an hour of living wage. The living wage should not be mistaken for the minimum wage. A living wage is a socially acceptable level of income that enables individuals to afford necessities and enables them to live with dignity. 
 
-#### 8. Initial values
+##### Initial values
+For the first iteration of the system following variables the following will be used:
 
-#### 9. Simulation
+`AMOUNT_MINTED_PP = 2400`
+`DEMURAGE_CHECK_PRECENT_TIER_1 = 30`
+`DEMURAGE_FEE_PRECENT_TIER_1 = 10`
+`DEMURAGE_CHECK_PRECENT_TIER_2 = 50`
+`DEMURAGE_FEE_PRECENT_TIER_2 = 30`
+`DEMURAGE_CHECK_PRECENT_TIER_3 = 90`
+`DEMURAGE_FEE_PRECENT_TIER_3 = 60`
+`MINIMUM_DONATION_AMOUNT = 120`
+
+AMOUNT_MINTED_PP is based on the assumption that over the period of one year, members will contribute at least 40 hours of their time towards the community.
+
+#### 8. Simulation
+Before using the system in the real case scenario it would be great to run some simulations to see how smoothly it would operate. It would be great to learn about some options that could be applicable.
+
