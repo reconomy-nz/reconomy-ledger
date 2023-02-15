@@ -107,10 +107,11 @@ When community admins get a notification that a user has been inactive for over 
 
 #### 7. Tokenomics
 Since mutual credit is not backed or pegged to fiat or commodity, it's important to determine a different measure of value.
-Because the credits are backed by members' commitment to contribute time and skill, it is possible to peg the credit value to time. In this scenario members of the cooperative will agree that 1 hour of labour or volunteering time is remunerated in 60 credits. That does NOT imply that 1 hour of any kind of work is equal to 60 credits. If we try to project the value of the mutual credits onto "real world money" we can say that 60 credits equal an hour of living wage. The living wage should not be mistaken for the minimum wage. A living wage is a socially acceptable level of income that enables individuals to afford necessities and enables them to live with dignity. 
+Because the credits are backed by members' commitment to contribute time and skill, it is possible to peg the credit value to time. In this scenario members of the cooperative will agree that 1 hour of labour or volunteering time is remunerated in 60 credits. That does NOT imply that everyone's hour of work is equal.
+If we try to project the value of the mutual credits onto "real world money" we can say that 60 credits equal an hour of living wage. The living wage should not be mistaken for the minimum wage. A living wage is a socially acceptable level of income that enables individuals to afford necessities and enables them to live with dignity. 
 
 ##### Initial values
-For the first iteration of the system following variables the following will be used:
+For the first iteration of the system following variables will be used:
 
 ```
 AMOUNT_MINTED_PP = 2400
